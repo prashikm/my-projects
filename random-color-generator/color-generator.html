@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Changer</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    h2{
+        background: black;
+        color: #ffffff;
+        padding: 8px;
+        border-radius: 20px;
+        font-size: 3.5rem;
+    }
+
+    .hexCode{
+        color: #7a7fc7;
+        padding: 4px;
+        border-radius: 6px;
+    }
+
+    .changeColor{
+        background: #000000;
+        color: #ffffff;
+        margin-top: 16px;
+        font-size: 1.2rem;
+        padding: 12px;
+        border-radius: 20px;
+        border: 1px solid black;
+        cursor: pointer;
+        font-weight: 400;
+        transition: ease 0.3s;
+    }
+
+    .changeColor:hover{
+        background: #ffffff;
+        color: #000000;
+    }
+
+    @media only screen and (max-width: 643px){
+        h2{
+            font-size: 1.8rem;
+        }
+
+        .changeColor{
+            font-size: 0.8rem;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>Color Code: <span class="hex"></span></h2>
+        <button class="changeColor">Change Color</button>
+    </div>
+    
+    <script>
+        const button = document.querySelector('.changeColor');
+        const hexCode = document.querySelector('.hex');
+        const body = document.querySelector('body');
+
+        const colors = [0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f'];
+
+        button.addEventListener('click', ()=> {
+            let hex = '#';
+            hexCode.classList.add('hexCode');
+
+            for (let i = 0; i < 6; i++) {
+                let random = Math.floor(Math.random()*colors.length);
+                hex += colors[random];
+            }
+            body.style.backgroundColor = hex;
+            hexCode.innerHTML = hex;
+        });
+    </script>
+</body>
+</html>

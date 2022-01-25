@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quotes Generator</title>
+</head>
+<style>
+    body{
+    margin: 0;
+    height: 100vh;
+    font-size: 18px;
+    font-family: 'calibri';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+    color: #ffffff;
+}
+
+.container{
+    text-align: center;
+    padding: 2rem;
+    background: #ffffff;
+    color: #000000;
+    flex: 0 0 70%;
+    border-radius: 6px;
+    line-height: 1.8;
+}
+
+.btn{
+    font-size: 1rem;
+    padding: 16px;
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid rgb(34, 34, 177);
+    outline: none;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background: #ffffff;
+    color: #000000;
+}
+
+.quote{
+    background: #000000;
+    color: #ffffff;
+    border-left: 4px solid #2b68c4;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h2>Quotes by Famous People</h2>
+        <blockquote>
+            <h2 class="quote">Quote</h2>
+        </blockquote>
+        <h3 class="quoteAuthor">Author of the Quote</h3>
+        <button class="btn">Press Here</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
