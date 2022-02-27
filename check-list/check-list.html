@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Check List | Hold shift key to check multiple checkboxes</title>
+  <link rel="stylesheet" href="./check-list.css">
+</head>
+<body>
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an inbox layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check this item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Hold down your Shift key</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check a lower item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Everything in between should also be set to checked</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>No library used</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Just regular JavaScript</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Play around</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Have Fun!</p>
+    </div>
+  </div>
+
+<script>
+  const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+  let lastCheck; 
+
+  function handleCheck(e) {
+    let inBetween = false;
+
+    if (e.shiftKey && this.checked) {
+      checkboxes.forEach(checkbox =>{
+
+        if (checkbox === this || checkbox === lastCheck) {
+          inBetween = !inBetween; // checks the both ways
+        }
+
+        if (inBetween) {
+          checkbox.checked = true;
+        }
+        
+      });
+    }
+
+    lastCheck = this;
+  }
+
+  checkboxes.forEach(checkbox =>{
+    checkbox.addEventListener('click', handleCheck)
+  })
+</script>
+</body>
+</html>
